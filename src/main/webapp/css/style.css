@@ -1,0 +1,176 @@
+:root {
+    --pink: #ff6b9d;
+    --light-pink: #ff9ec1;
+    --soft-pink: #ffeef8;
+    --gray: #f8f9fa;
+    --text: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffaf8;
+    color: var(--text);
+}
+
+/* ============== NAVBAR ============== */
+.navbar {
+    background: linear-gradient(135deg, var(--light-pink), var(--pink)) !important;
+    box-shadow: 0 2px 10px rgba(255, 107, 157, 0.2);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.navbar-brand:hover {
+    color: #fff5f8 !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #fff0f5 !important;
+}
+
+/* Nút tìm kiếm & giỏ hàng */
+.btn-light {
+    border: 1px solid #ffe0e9;
+}
+
+.btn-warning {
+    background: #ffd1e3 !important;
+    border: none;
+    color: #d63384;
+}
+
+.btn-warning:hover {
+    background: #ff9ec1 !important;
+    color: white;
+}
+
+/* ============== JUMBOTRON ============== */
+.jumbotron {
+    background: url('../images/bg-toys.jpg') center/cover no-repeat;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+}
+
+.jumbotron h1 {
+    font-weight: 800;
+    font-size: 2.8rem;
+}
+
+/* ============== CARD SẢN PHẨM ============== */
+.card {
+    border: 1px solid var(--soft-pink);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: white;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 107, 157, 0.25);
+    border-color: var(--pink);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--soft-pink);
+}
+
+.card-body {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.card-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: var(--pink);
+}
+
+.text-muted {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.text-danger {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Nút mua */
+.btn-pink {
+    background: var(--light-pink);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    margin-top: auto;
+    transition: 0.3s;
+}
+
+.btn-pink:hover {
+    background: var(--pink);
+    transform: scale(1.05);
+}
+
+/* ============== FOOTER ============== */
+footer {
+    background: #2c1a2e;
+    color: #f8d7e3;
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+footer a {
+    color: #ff9ec1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 600;
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+    .card-img-top {
+        height: 180px;
+    }
+}
