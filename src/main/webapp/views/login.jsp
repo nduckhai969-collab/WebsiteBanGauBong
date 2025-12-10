@@ -4,28 +4,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Đăng nhập - Thú Nhồi Bông</title>
-    <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Đăng nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 <div class="container">
     <div class="row justify-content-center mt-5">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="card shadow">
                 <div class="card-body p-5">
-                    <h3 class="text-center text-pink mb-4">Đăng nhập</h3>
-                    <form action="${pageContext.request.contextPath}/login" method="post">
-                        <input name="user" type="text" class="form-control mb-3" placeholder="Tên đăng nhập" required>
-                        <input name="pass" type="password" class="form-control mb-3" placeholder="Mật khẩu" required>
-                        <div class="form-check mb-3">
-                            <input name="remember" value="1" type="checkbox" class="form-check-input">
-                            <label class="form-check-label">Ghi nhớ</label>
+
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-triangle"></i> ${error}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
-                        <button type="submit" class="btn btn-pink btn-block">Đăng nhập</button>
+                    </c:if>
+
+                    <h3 class="text-center mb-4">Đăng nhập</h3>
+                    <form action="login" method="post">
+                        <div class="mb-3">
+                            <input name="user" type="text" class="form-control" placeholder="Tên đăng nhập" required>
+                        </div>
+                        <div class="mb-3">
+                            <input name="pass" type="password" class="form-control" placeholder="Mật khẩu" required>
+                        </div>
+                        <button type="submit" class="btn btn-pink w-100">Đăng nhập</button>
                     </form>
-                    <hr>
-                    <button class="btn btn-outline-pink btn-block" id="btn-signup">Đăng ký tài khoản mới</button>
                 </div>
             </div>
         </div>

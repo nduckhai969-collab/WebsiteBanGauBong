@@ -1,4 +1,4 @@
-package model;
+package config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,8 +6,7 @@ import java.sql.SQLException;
 
 public class DBContext {
     private static final String DB_NAME = "ToyShopDB";
-    private static final String SERVER_NAME = "localhost";  // hoặc tên máy của bạn
-    private static final String INSTANCE = "";              // để trống nếu không dùng instance
+    private static final String SERVER_NAME = "localhost";  
     private static final String PORT = "1433";
 
     // Chuỗi kết nối Windows Authentication
@@ -18,7 +17,6 @@ public class DBContext {
 
     public Connection getConnection() throws SQLException {
         try {
-            // Load driver (SQL Server 2019+ tự động, nhưng để chắc chắn)
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {
             throw new SQLException("Không tìm thấy driver SQL Server", e);
