@@ -16,7 +16,7 @@
                 <h5><i class="fas fa-phone me-2"></i> Liên hệ</h5>
                 <p>Hotline: 1900 1234<br>
                    Email: support@thunhoibong.vn<br>
-                   Địa chỉ: 123 Đường Hồng, TP.HCM</p>
+                   Địa chỉ: 123 Đường 3 tháng 4, TP.HCM</p>
             </div>
         </div>
         <hr style="border-color: #ff9ec1;">

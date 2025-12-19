@@ -68,11 +68,11 @@
                     <div class="card-body">
                         <h5>Thành tiền</h5>
                         <ul class="list-unstyled">
-                            <li class="d-flex justify-content-between"><span>Tổng hàng:</span> <strong>750.000₫</strong></li>
+                            <li class="d-flex justify-content-between"><span>Tổng hàng:</span> <strong>0.000₫</strong></li>
                             <li class="d-flex justify-content-between"><span>Phí ship:</span> <strong>Miễn phí</strong></li>
                             <li class="d-flex justify-content-between border-top pt-2">
                                 <strong>Tổng thanh toán:</strong>
-                                <h5 class="text-pink">750.000₫</h5>
+                                <h5 class="text-pink">0.000₫</h5>
                             </li>
                         </ul>
                         <a href="#" class="btn btn-pink btn-lg btn-block">Thanh toán</a>

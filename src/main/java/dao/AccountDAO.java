@@ -17,18 +17,30 @@ public class AccountDAO {
 
 	// Đăng nhập
 	public Account login(String user, String pass) {
-		String sql = "SELECT * FROM Account WHERE user = ? AND pass = ?";
-		try (PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setString(1, user);
-			ps.setString(2, pass);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				return new Account(rs.getInt("uid"), rs.getString("user"), rs.getString("pass"),
-						rs.getString("fullName"), rs.getString("email"), rs.getString("phone"),
-						rs.getBoolean("isAdmin"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+	    String sql = "SELECT * FROM Account WHERE users = ? AND pass = ?";
+	    try (PreparedStatement ps = conn.prepareStatement(sql)) {
+	        ps.setString(1, user.trim());
+	        ps.setString(2, pass.trim());
+	        ResultSet rs = ps.executeQuery();
+	        
+	        System.out.println("Đang tìm user: " + user + " - pass: " + pass);
+	        
+	        if (rs.next()) {
+	            System.out.println("ĐĂNG NHẬP THÀNH CÔNG!");
+	            return new Account(
+	                rs.getInt("uid"),
+	                rs.getString("users"),
+	                rs.getString("pass"),
+	                rs.getString("fullName"),
+	                rs.getString("email"),
+	                rs.getString("phone"),
+	                rs.getBoolean("isAdmin")
+	            );
+	        } else {
+	            System.out.println("SAI USER HOẶC PASS");
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
 		}
 		return null;
 	}

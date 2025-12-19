@@ -19,7 +19,8 @@ public class CartController extends HttpServlet {
         Account acc = (Account) session.getAttribute("acc");
 
         if (acc == null) {
-            resp.sendRedirect("login.jsp");
+            req.setAttribute("error", "Bạn cần đăng nhập để xem giỏ hàng!");
+            req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
             return;
         }
 

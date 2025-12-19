@@ -2,15 +2,15 @@ package beans;
 
 public class Account {
 	private int uid;
-	private String user, pass, fullName, email, phone;
+	private String users, pass, fullName, email, phone;
 	private boolean isAdmin;
 
 	public Account() {
 	}
 
-	public Account(int uid, String user, String pass, String fullName, String email, String phone, boolean isAdmin) {
+	public Account(int uid, String users, String pass, String fullName, String email, String phone, boolean isAdmin) {
 		this.uid = uid;
-		this.user = user;
+		this.users = users;
 		this.pass = pass;
 		this.fullName = fullName;
 		this.email = email;
@@ -18,7 +18,6 @@ public class Account {
 		this.isAdmin = isAdmin;
 	}
 
-	// Getters & Setters (tự sinh hoặc copy)
 	public int getUid() {
 		return uid;
 	}
@@ -27,12 +26,12 @@ public class Account {
 		this.uid = uid;
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsers() {
+		return users;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsers(String users) {
+		this.users = users;
 	}
 
 	public String getPass() {
