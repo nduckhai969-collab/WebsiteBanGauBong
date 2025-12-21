@@ -17,16 +17,24 @@ public class AddToCartController extends HttpServlet {
 		Account acc = (Account) session.getAttribute("acc");
 
 		if (acc == null) {
-			req.setAttribute("error", "Vui lòng đăng nhập để mua hàng!");
+			session.setAttribute("backUrl", req.getHeader("Referer"));
+			req.setAttribute("error", "Bạn cần đăng nhập để thêm vào giỏ hàng!");
 			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 			return;
 		}
 
 		int pid = Integer.parseInt(req.getParameter("pid"));
-		int quantity = 1;
+		int quantity = req.getParameter("quantity") != null ? Integer.parseInt(req.getParameter("quantity")) : 1;
 
 		cartDAO.addToCart(acc.getUid(), pid, quantity);
+		int cartID = cartDAO.getActiveCart(acc.getUid()).getCartID();
+		int cartSize = cartDAO.getCartItems(cartID).size();
+		session.setAttribute("cartSize", cartSize);
 
-		resp.sendRedirect("cart");
+		session.setAttribute("toastSuccess", "Đã thêm sản phẩm vào giỏ hàng!");
+
+
+		String referer = req.getHeader("Referer");
+		resp.sendRedirect(referer != null ? referer : "home");
 	}
 }

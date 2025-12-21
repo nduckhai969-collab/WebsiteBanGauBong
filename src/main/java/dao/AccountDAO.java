@@ -21,10 +21,7 @@ public class AccountDAO {
 	    try (PreparedStatement ps = conn.prepareStatement(sql)) {
 	        ps.setString(1, user.trim());
 	        ps.setString(2, pass.trim());
-	        ResultSet rs = ps.executeQuery();
-	        
-	        System.out.println("Đang tìm user: " + user + " - pass: " + pass);
-	        
+	        ResultSet rs = ps.executeQuery();	        
 	        if (rs.next()) {
 	            System.out.println("ĐĂNG NHẬP THÀNH CÔNG!");
 	            return new Account(

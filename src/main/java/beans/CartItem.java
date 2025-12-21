@@ -6,7 +6,6 @@ public class CartItem {
 	private int pid;
 	private int quantity;
 	private double price; // giá tại thời điểm thêm vào giỏ
-
 	private Product product; // để hiển thị tên, ảnh
 
 	// constructor

@@ -19,21 +19,25 @@ public class CartController extends HttpServlet {
         Account acc = (Account) session.getAttribute("acc");
 
         if (acc == null) {
+            // Lưu trang gốc để quay lại sau khi login
+            session.setAttribute("backUrl", req.getRequestURI());
+
             req.setAttribute("error", "Bạn cần đăng nhập để xem giỏ hàng!");
             req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
             return;
         }
 
         Cart cart = cartDAO.getActiveCart(acc.getUid());
-        if (cart == null) {
-            req.setAttribute("cartItems", new ArrayList<>());
-            req.setAttribute("total", 0);
-        } else {
-            List<CartItem> list = cartDAO.getCartItems(cart.getCartID());
-            double total = list.stream().mapToDouble(CartItem::getTotal).sum();
-            req.setAttribute("cartItems", list);
-            req.setAttribute("total", total);
+
+        List<CartItem> list = new ArrayList<>();
+        double total = 0;
+
+        if (cart != null) {
+            list = cartDAO.getCartItems(cart.getCartID());
+            total = list.stream().mapToDouble(CartItem::getTotal).sum();
         }
+        req.setAttribute("cartItems", list);
+        req.setAttribute("total", total);
 
         req.getRequestDispatcher("/views/cart.jsp").forward(req, resp);
     }

@@ -6,8 +6,6 @@ public class Product {
 	private double price;
 	private int cateID, stock, sellCount;
 	private boolean status;
-
-	// Constructor rỗng + đầy đủ
 	public Product() {
 	}
 

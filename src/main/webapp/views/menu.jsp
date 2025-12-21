@@ -65,15 +65,37 @@
 
 			<a href="${pageContext.request.contextPath}/cart"
 				class="btn btn-warning position-relative"> <i
-				class="fas fa-shopping-cart"></i> <span
+				class="fas fa-shopping-cart"></i> Giỏ hàng <span
 				class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-					${sessionScope.cartItems != null ? sessionScope.cartItems.size() : 0}
-			</span>
+					${sessionScope.cartSize != null ? sessionScope.cartSize : 0} </span>
 			</a>
 		</div>
 	</div>
 </nav>
-
-<!-- BẮT BUỘC THÊM JS BOOTSTRAP 5 -->
+<c:if test="${not empty sessionScope.toastSuccess}">
+	<div class="toast-container position-fixed bottom-0 end-0 p-3"
+		style="z-index: 1080;">
+		<div
+			class="toast show align-items-center text-white bg-success border-0"
+			role="alert">
+			<div class="d-flex">
+				<div class="toast-body">
+					<i class="fas fa-check-circle me-2"></i>
+					${sessionScope.toastSuccess}
+				</div>
+				<button type="button" class="btn-close btn-close-white me-2 m-auto"
+					data-bs-dismiss="toast"></button>
+			</div>
+		</div>
+	</div>
+	<c:remove var="toastSuccess" scope="session" />
+	<!-- XÓA NGAY SAU KHI HIỆN -->
+</c:if>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.querySelectorAll('.toast').forEach(toast => {
+        new bootstrap.Toast(toast, { delay: 2000 }).show(); // xóa thông báo sau 2s
+    });
+</script>

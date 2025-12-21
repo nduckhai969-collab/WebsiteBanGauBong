@@ -16,7 +16,7 @@ public class CartDAO {
 		}
 	}
 
-	// Lấy giỏ hàng hiện tại của user (status = 0)
+	// Lấy giỏ hiện tại của user (status = 0)
 	public Cart getActiveCart(int uid) {
 		String sql = "SELECT * FROM Cart WHERE uid = ? AND status = 0";
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -119,4 +119,13 @@ public class CartDAO {
             }
         } catch (Exception e) { e.printStackTrace(); }
     }
+	public void completeOrder(int cartID) {
+	    String sql = "UPDATE Cart SET status = 1 WHERE cartID = ?";
+	    try (PreparedStatement ps = conn.prepareStatement(sql)) {
+	        ps.setInt(1, cartID);
+	        ps.executeUpdate();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 }

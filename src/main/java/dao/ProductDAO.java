@@ -32,7 +32,7 @@ public class ProductDAO {
 	}
 	
 
-	// TEST CHẠO CHẠY CHỨC NĂNG
+	// test kết nối
 	public static void main(String[] args) {
 		ProductDAO dao = new ProductDAO();
 		List<Product> list = dao.getAllProducts();
